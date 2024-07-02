@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-// import startDB from "startup/db";
-import mongo from "mongoose";
+import client from "config/cassandra";
 import { auth, user, group, expense } from "routes";
 
 // (async () => await startDB())();
@@ -10,9 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongo.connect(process.env.MONGODB_URL).then(() => {
-  console.log("Connected to database");
-});
 
 if (!process.env.JWT_PRIVATE_KEY) {
   console.error("FATAL ERROR: JWT_PRIVATE_KEY is not defined.");
