@@ -33,7 +33,7 @@
 
 
 import Joi from 'joi';
-import client from 'config/cassandra';
+import client from '../config/cassandra';
 import { v4 as uuidv4 } from 'uuid';
 
 const groupSchema = {
